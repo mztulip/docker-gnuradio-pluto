@@ -51,13 +51,17 @@ WORKDIR /opt
 
 RUN git clone https://github.com/analogdevicesinc/libiio.git \
     && cd libiio \
+    && git checkout v0.21 \
+    && apt install -y libzstd-dev \
     && cmake ./ \
     && make all \
     && make install \
+    && ldconfig \
     && cd ..
 
 RUN git clone https://github.com/analogdevicesinc/libad9361-iio.git \ 
     && cd libad9361-iio \
+    && apt install -y libc6-dev \
     && cmake ./ \
     && make && make install \
     && cd ..
