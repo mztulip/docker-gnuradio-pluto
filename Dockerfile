@@ -49,20 +49,20 @@ RUN apt-get update && apt upgrade -yf \
 
 WORKDIR /opt
 
-RUN git clone https://github.com/analogdevicesinc/libiio.git \
+RUN git clone --depth 1 --branch v0.24 https://github.com/analogdevicesinc/libiio.git \
     && cd libiio \
     && cmake ./ \
     && make all \
     && make install \
     && cd ..
 
-RUN git clone https://github.com/analogdevicesinc/libad9361-iio.git \ 
+RUN git clone --depth 1 --branch v0.3 https://github.com/analogdevicesinc/libad9361-iio.git \ 
     && cd libad9361-iio \
     && cmake ./ \
     && make && make install \
     && cd ..
 
-RUN git clone https://github.com/analogdevicesinc/gr-iio.git \
+RUN git clone --depth 1 --branch v0.3 https://github.com/analogdevicesinc/gr-iio.git \
     && cd gr-iio \
     && cmake -DCMAKE_INSTALL_PREFIX=/usr . \
     && make && make install \
