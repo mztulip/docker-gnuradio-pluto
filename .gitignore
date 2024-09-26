@@ -1,0 +1,6 @@
+.cache
+.config
+.gr_fftw_wisdom
+.gnuradio
+.gr_fftw_wisdom.lock
+top_block.py

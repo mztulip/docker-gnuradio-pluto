@@ -10,7 +10,7 @@ if [ $CONTAINER_EXIST ]; then
     docker start gnuradio
 else
     docker run --rm -d \
-        --add-host pluto.local:192.168.2.1 \
+        --add-host pluto.local:192.168.3.1 \
         --volume /tmp/.X11-unix:/tmp/.X11-unix \
         --volume `pwd`/gnuradio:/home/gnuradio \
         -e DISPLAY=unix$DISPLAY \
